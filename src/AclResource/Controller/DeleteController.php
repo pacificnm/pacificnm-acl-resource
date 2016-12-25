@@ -53,7 +53,7 @@ class DeleteController extends AbstractApplicationController
                 
                 $this->getEventManager()->trigger('aclResourceDelete', $this, array(
                     'authId' => $this->identity() ->getAuthId(),
-                    'historyUrl' => $this->getRequest()->getUri(),
+                    'requestUrl' => $this->getRequest()->getUri(),
                     'aclResourceEntity' => $entity
                 ));
                 
