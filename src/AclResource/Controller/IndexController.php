@@ -36,7 +36,7 @@ class IndexController extends AbstractApplicationController
         
         $this->getEventManager()->trigger('aclResourceIndex', $this, array(
             'authId' => $this->identity()->getAuthId(),
-            'historyUrl' => $this->getRequest()->getUri()
+            'requestUrl' => $this->getRequest()->getUri()
         ));
         
         $filter = array(
