@@ -1,9 +1,16 @@
 <?php
+/**
+ * Pacific NM (https://www.pacificnm.com)
+ *
+ * @link      https://github.com/pacificnm/pacificnm-acl-resource for the canonical source repository
+ * @copyright Copyright (c) 20011-2016 Pacific NM USA Inc. (https://www.pacificnm.com)
+ * @license BSD-3-Clause
+ */
 return array(
     'module' => array(
         'AclResource' => array(
             'name' => 'AclResource',
-            'version' => '1.0.0',
+            'version' => '1.0.3',
             'install' => array(
                 'require' => array(),
                 'sql' => 'sql/acl_resource.sql'
@@ -35,6 +42,8 @@ return array(
                 'pageSubTitle' => 'New',
                 'activeMenuItem' => 'admin-index',
                 'activeSubMenuItem' => 'acl-index',
+                'icon' => 'fa fa-lock',
+                'layout' => 'admin',
                 'type' => 'literal',
                 'options' => array(
                     'route' => '/admin/acl-resource/create',
@@ -49,6 +58,8 @@ return array(
                 'pageSubTitle' => 'Delete',
                 'activeMenuItem' => 'admin-index',
                 'activeSubMenuItem' => 'acl-index',
+                'icon' => 'fa fa-lock',
+                'layout' => 'admin',
                 'type' => 'segment',
                 'options' => array(
                     'route' => '/admin/acl-resource/delete/[:id]',
@@ -66,6 +77,8 @@ return array(
                 'pageSubTitle' => 'Home',
                 'activeMenuItem' => 'admin-index',
                 'activeSubMenuItem' => 'acl-index',
+                'icon' => 'fa fa-lock',
+                'layout' => 'admin',
                 'type' => 'literal',
                 'options' => array(
                     'route' => '/admin/acl-resource',
@@ -80,6 +93,8 @@ return array(
                 'pageSubTitle' => 'Rest',
                 'activeMenuItem' => 'admin-index',
                 'activeSubMenuItem' => 'acl-index',
+                'icon' => 'fa fa-lock',
+                'layout' => 'rest',
                 'type' => 'segment',
                 'options' => array(
                     'route' => '/api/acl-resource[/:id]',
@@ -93,6 +108,8 @@ return array(
                 'pageSubTitle' => 'Edit',
                 'activeMenuItem' => 'admin-index',
                 'activeSubMenuItem' => 'acl-index',
+                'icon' => 'fa fa-lock',
+                'layout' => 'admin',
                 'type' => 'segment',
                 'options' => array(
                     'route' => '/admin/acl-resource/update/[:id]',
@@ -110,6 +127,8 @@ return array(
                 'pageSubTitle' => 'View',
                 'activeMenuItem' => 'admin-index',
                 'activeSubMenuItem' => 'acl-index',
+                'icon' => 'fa fa-lock',
+                'layout' => 'admin',
                 'type' => 'segment',
                 'options' => array(
                     'route' => '/admin/acl-resource/view/[:id]',
@@ -178,6 +197,7 @@ return array(
                 'name' => 'Admin',
                 'icon' => 'fa fa-gear',
                 'order' => 99,
+                'location' => 'left',
                 'active' => true,
                 'items' => array()
             )
