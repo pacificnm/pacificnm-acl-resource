@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `acl_resource` (
 `acl_resource_id` int(20) unsigned NOT NULL,
   `acl_resource_name` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB;
 
 --
 -- Indexes for dumped tables
