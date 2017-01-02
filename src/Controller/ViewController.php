@@ -8,39 +8,39 @@
  */
 namespace Pacificnm\AclResource\Controller;
 
-use Application\Controller\AbstractApplicationController;
-use Pacificnm\AclResource\Service\ServiceInterface;
 use Zend\View\Model\ViewModel;
+use Pacificnm\Controller\AbstractApplicationController;
+use Pacificnm\AclResource\Service\ServiceInterface;
 
 class ViewController extends AbstractApplicationController
 {
+
     /**
      *
      * @var ServiceInterface
      */
     protected $service;
-    
-    
+
     /**
-     * 
-     * @param ServiceInterface $service
-     * @param Form $form
+     *
+     * @param ServiceInterface $service            
+     * @param Form $form            
      */
     public function __construct(ServiceInterface $service)
     {
         $this->service = $service;
     }
-    
+
     /**
      *
+     * {@inheritdoc}
      *
-     * {@inheritDoc}
      * @see \Application\Controller\AbstractApplicationController::indexAction()
      */
     public function indexAction()
     {
         parent::indexAction();
-    
+        
         $id = $this->params()->fromRoute('id');
         
         $entity = $this->service->get($id);
@@ -52,8 +52,10 @@ class ViewController extends AbstractApplicationController
         }
         
         $this->getEventManager()->trigger('aclResourceView', $this, array(
-            'authId' => $this->identity() ->getAuthId(),
-            'requestUrl' => $this->getRequest()->getUri(),
+            'authId' => $this->identity()
+                ->getAuthId(),
+            'requestUrl' => $this->getRequest()
+                ->getUri(),
             'aclResourceEntity' => $entity
         ));
         

@@ -8,31 +8,32 @@
  */
 namespace Pacificnm\AclResource\Controller;
 
-use Application\Controller\AbstractApplicationController;
-use Pacificnm\AclResource\Service\ServiceInterface;
 use Zend\View\Model\ViewModel;
+use Pacificnm\Controller\AbstractApplicationController;
+use Pacificnm\AclResource\Service\ServiceInterface;
 
 class IndexController extends AbstractApplicationController
 {
+
     /**
-     * 
+     *
      * @var ServiceInterface
      */
     protected $service;
-    
+
     /**
-     * 
-     * @param ServiceInterface $service
+     *
+     * @param ServiceInterface $service            
      */
     public function __construct(ServiceInterface $service)
     {
         $this->service = $service;
     }
-    
+
     /**
-     * 
-     * 
-     * {@inheritDoc}
+     *
+     * {@inheritdoc}
+     *
      * @see \Application\Controller\AbstractApplicationController::indexAction()
      */
     public function indexAction()
@@ -42,8 +43,10 @@ class IndexController extends AbstractApplicationController
         $aclResourceName = $this->params()->fromQuery('aclResourceName', null);
         
         $this->getEventManager()->trigger('aclResourceIndex', $this, array(
-            'authId' => $this->identity()->getAuthId(),
-            'requestUrl' => $this->getRequest()->getUri()
+            'authId' => $this->identity()
+                ->getAuthId(),
+            'requestUrl' => $this->getRequest()
+                ->getUri()
         ));
         
         $filter = array(
