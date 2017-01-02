@@ -8,10 +8,10 @@
  */
 namespace Pacificnm\AclResource\Controller;
 
-use Application\Controller\AbstractApplicationController;
+use Zend\View\Model\ViewModel;
+use Pacificnm\Controller\AbstractApplicationController;
 use Pacificnm\AclResource\Service\ServiceInterface;
 use Pacificnm\AclResource\Form\Form;
-use Zend\View\Model\ViewModel;
 
 class UpdateController extends AbstractApplicationController
 {
@@ -73,8 +73,10 @@ class UpdateController extends AbstractApplicationController
                 $aclResourceEntity = $this->service->save($entity);
                 
                 $this->getEventManager()->trigger('aclResourceUpdate', $this, array(
-                    'authId' => $this->identity()->getAuthId(),
-                    'requestUrl' => $this->getRequest()->getUri(),
+                    'authId' => $this->identity()
+                        ->getAuthId(),
+                    'requestUrl' => $this->getRequest()
+                        ->getUri(),
                     'aclResourceEntity' => $aclResourceEntity
                 ));
                 

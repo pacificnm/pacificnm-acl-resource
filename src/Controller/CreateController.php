@@ -8,28 +8,30 @@
  */
 namespace Pacificnm\AclResource\Controller;
 
-use Application\Controller\AbstractApplicationController;
+use Zend\View\Model\ViewModel;
+use Pacificnm\Controller\AbstractApplicationController;
 use Pacificnm\AclResource\Form\Form;
 use Pacificnm\AclResource\Service\ServiceInterface;
-use Zend\View\Model\ViewModel;
 
 class CreateController extends AbstractApplicationController
 {
+
     /**
      *
      * @var ServiceInterface
      */
     protected $service;
-    
+
     /**
-     * 
+     *
      * @var Form
      */
     protected $form;
+
     /**
-     * 
-     * @param ServiceInterface $service
-     * @param Form $form
+     *
+     * @param ServiceInterface $service            
+     * @param Form $form            
      */
     public function __construct(ServiceInterface $service, Form $form)
     {
@@ -37,17 +39,17 @@ class CreateController extends AbstractApplicationController
         
         $this->form = $form;
     }
-    
+
     /**
      *
+     * {@inheritdoc}
      *
-     * {@inheritDoc}
      * @see \Application\Controller\AbstractApplicationController::indexAction()
      */
     public function indexAction()
     {
         parent::indexAction();
-    
+        
         $request = $this->getRequest();
         
         if ($request->isPost()) {
@@ -61,8 +63,10 @@ class CreateController extends AbstractApplicationController
                 $aclResourceEntity = $this->service->save($entity);
                 
                 $this->getEventManager()->trigger('aclResourceCreate', $this, array(
-                    'authId' => $this->identity()->getAuthId(),
-                    'requestUrl' => $this->getRequest()->getUri(),
+                    'authId' => $this->identity()
+                        ->getAuthId(),
+                    'requestUrl' => $this->getRequest()
+                        ->getUri(),
                     'aclResourceEntity' => $aclResourceEntity
                 ));
                 

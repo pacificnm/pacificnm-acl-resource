@@ -8,9 +8,10 @@
  */
 namespace Pacificnm\AclResource\Controller;
 
-use Application\Controller\AbstractApplicationController;
-use Pacificnm\AclResource\Service\ServiceInterface;
 use Zend\View\Model\ViewModel;
+use Pacificnm\Controller\AbstractApplicationController;
+use Pacificnm\AclResource\Service\ServiceInterface;
+
 
 class DeleteController extends AbstractApplicationController
 {
